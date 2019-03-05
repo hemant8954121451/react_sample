@@ -1,5 +1,5 @@
 import React, {Component } from 'react'
-
+import MenuCapsion from './components/menuCapsion'
 
 class App extends Component {
   render() {
@@ -7,7 +7,9 @@ class App extends Component {
 
     return (
       <div>
-      Started App Page
+        <div>Header</div>
+        <MenuCapsion />
+        <div>Footer</div>
       </div>
     )
   }
