@@ -1,4 +1,4 @@
-import { FETCH_USERS_LIST } from '../Action/actionType';
+import { FETCH_USERS_LIST, REQUEST_DATA } from '../Action/actionType';
 
 
 const initialState = {
@@ -6,22 +6,21 @@ const initialState = {
 };
 
 export default function userReducer(state = initialState, action) {
+   // alert('reducer')
     console.log(action)
-    switch(action.type) {
-      case FETCH_USERS_LIST:
-      console.log({
-        ...state,
-       users:action.users
-    
-      })
-        return {
-          ...state,
-         users:{...action.users}
-      
-        };
+    switch (action.type) {
+        case FETCH_USERS_LIST:
+            return {
+                ...state,
+                users: action.users
+            };
+        case REQUEST_DATA:
+            return {
+                ...state
+            }
         default:
-        return {...state}
+            return { ...state }
     }
-}  
+}
 
 
