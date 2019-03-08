@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { getUserList } from '../api'
-import { Widget, addResponseMessage } from 'react-chat-widget';
+//import { Widget, addResponseMessage } from 'react-chat-widget';
 import 'react-chat-widget/lib/styles.css';
 //import {ChatBot} from 'react-simple-chatbot';
 
@@ -30,24 +30,27 @@ class UserList extends Component {
     componentDidMount() {
         console.log('component did mountsss',this.props)
         this.props.getUserList();
-        addResponseMessage("Welcome to this awesome chat!");
+       // addResponseMessage("Welcome to this awesome chat!");
     }
     handleNewUserMessage = (newMessage) => {
         console.log(`New message incomig! ${newMessage}`);
-        addResponseMessage("hi how");
-      }
+        //addResponseMessage("hi how");
+    }
+    btnTapped(userId,userName){
+       this.props.history.push('/chat-history/'+userId+'/'+userName)
+       // console.log('Id and Name',userId,userName)
+    }
     render() {
-        const { users } = this.props;
+        
+    const { users } = this.props; console.log('users data',users);
        return (
             <div>
                 <h2>Random User</h2>
-                <Widget
-          handleNewUserMessage={this.handleNewUserMessage}/>
                 {users.length > 0 && (
                     users.map(user => {
-                        const { name, age, location } = user;
+                        const { name, age, location, id } = user;
                         return (
-                            <div key={name}>
+                            <div onClick={(e)=>this.btnTapped(id,name,e)} key={name}>
                                 <p>{name}</p>
                                 <p>{age}</p>
                                 <p>{location}</p>
