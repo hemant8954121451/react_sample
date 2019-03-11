@@ -36,8 +36,8 @@ class UserList extends Component {
         console.log(`New message incomig! ${newMessage}`);
         //addResponseMessage("hi how");
     }
-    btnTapped(userId,userName){
-       this.props.history.push('/chat-history/'+userId+'/'+userName)
+    btnTapped(userId,userName,image){ 
+       this.props.history.push('/chat-history/'+userId+'/'+userName+'/'+image)
        // console.log('Id and Name',userId,userName)
     }
     render() {
@@ -48,9 +48,9 @@ class UserList extends Component {
                 <h2>Random User</h2>
                 {users.length > 0 && (
                     users.map(user => {
-                        const { name, age, location, id } = user;
+                        const { name, age, location, id,profile } = user;
                         return (
-                            <div onClick={(e)=>this.btnTapped(id,name,e)} key={name}>
+                            <div onClick={(e)=>this.btnTapped(id,name,profile,e)} key={name}>
                                 <p>{name}</p>
                                 <p>{age}</p>
                                 <p>{location}</p>
@@ -59,7 +59,6 @@ class UserList extends Component {
                         );
                     })
                 )}
-              
             </div>
         );
     }
