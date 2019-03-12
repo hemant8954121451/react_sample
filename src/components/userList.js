@@ -1,9 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { getUserList } from '../api'
-//import { Widget, addResponseMessage } from 'react-chat-widget';
 import 'react-chat-widget/lib/styles.css';
-//import {ChatBot} from 'react-simple-chatbot';
 
 class UserList extends Component {
     constructor(props) {
@@ -14,53 +12,36 @@ class UserList extends Component {
             chat:[{id: '1', message: 'how r u?',end:true}]
         };
     }
-    // getUsers() {
-    //     axios
-    //       .get("")
-    //       .then((result)=>{
-    //             return result.data.users
-    //       })
-    //       .then(user => {
-    //         this.setState({
-    //           users:user
-    //         });
-    //       })
-    //       .catch(error => this.setState({errors :'error caught'}));
-    // }
+    
     componentDidMount() {
-        console.log('component did mountsss',this.props)
+        console.log('component did mount',this.props)
         this.props.getUserList();
-       // addResponseMessage("Welcome to this awesome chat!");
     }
     handleNewUserMessage = (newMessage) => {
         console.log(`New message incomig! ${newMessage}`);
-        //addResponseMessage("hi how");
     }
-    btnTapped(userId,userName){
-       this.props.history.push('/chat-history/'+userId+'/'+userName)
-       // console.log('Id and Name',userId,userName)
+    btnTapped(userId,userName,image){ 
+       this.props.history.push('/chat-history/'+userId+'/'+userName+'/'+image)
     }
     render() {
-        
-    const { users } = this.props; console.log('users data',users);
-       return (
-            <div>
-                <h2>Random User</h2>
-                {users.length > 0 && (
-                    users.map(user => {
-                        const { name, age, location, id } = user;
-                        return (
-                            <div onClick={(e)=>this.btnTapped(id,name,e)} key={name}>
-                                <p>{name}</p>
-                                <p>{age}</p>
-                                <p>{location}</p>
-                                <hr />
-                            </div>
-                        );
-                    })
-                )}
-              
-            </div>
+        const { users } = this.props; console.log('users data',users);
+        return (
+                <div>
+                    <h2>Random User</h2>
+                    {users.length > 0 && (
+                        users.map(user => {
+                            const { name, age, location, id,profile } = user;
+                            return (
+                                <div onClick={(e)=>this.btnTapped(id,name,profile,e)} key={name}>
+                                    <p>{name}</p>
+                                    <p>{age}</p>
+                                    <p>{location}</p>
+                                    <hr />
+                                </div>
+                            );
+                        })
+                    )}
+                </div>
         );
     }
 }
