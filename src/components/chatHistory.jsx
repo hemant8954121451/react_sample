@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
 import './chathistory.css'
-//import queryString from 'query-string'
-import axios from 'axios'
 
 class ChatHistory extends Component {
     constructor(props) {
@@ -13,9 +11,7 @@ class ChatHistory extends Component {
         }
         this.handleChange = this.handleChange.bind(this)
         this.onSubmit = this.onSubmit.bind(this)
-        const message = { type: 'receiver', data: 'Welcome to Chat Bot' };
     }
-    //after rendering the page
     componentDidMount() {
         const msg = this.state.msgs;
         if(msg.length==0){
@@ -31,7 +27,7 @@ class ChatHistory extends Component {
         e.preventDefault()
         const msg = this.state.msgs;
         msg.push({ type: 'sender', data: this.state.text})
-        msg.push({ type: 'receiver', data: 'Hello how are you'})
+        msg.push({ type: 'receiver', data: 'Hello, how are you Doing'})
         this.setState({ msgs: msg,text:'' })
     }
     render() {
@@ -39,9 +35,9 @@ class ChatHistory extends Component {
         const {msgs} =this.state
         const data= msgs.map((obj)=>{
             if(obj.type=='sender')
-            return <li>{obj.data}</li>
+            return <li style={{float:"right",marginTop:"10px",padding:"30px 20px 50px 25px",borderRadius: "12px",width:'200px',backgroundColor:"#4b286d"}} >{obj.data}</li>
             else
-            return <li style={{marginLeft:'20px'}}>{obj.data}</li>
+            return <li style={{clear:"both",padding:"10px 10px 10px 15px",width:'200px',borderRadius: "12px",marginLeft:'10px',backgroundColor:'#e8e8eb'}}>{obj.data}</li>
          })
         return (
             <div className="Input">
@@ -49,24 +45,21 @@ class ChatHistory extends Component {
                     <div>
                         <h1>You are chatting with {params.username}</h1>
                     </div>
-                    <div>Connecting...</div>
                             &nbsp;&nbsp;&nbsp;
                     <div>
-                        <ul id="chat" style={{listStyleType:'none'}}>
-                           {data}
-                            {/* <li className='sender'><div><span className="author">Sender:</span> Hello </div></li>
-                            <li className='receiver'><div><span className="author">Receiver:</span> How are you</div></li> */}
+                        <ul class="chat" style={{listStyleType:'none'}}>
+                            {data}
                         </ul>
                         &nbsp;&nbsp;&nbsp;
                         <input
                             onChange={this.handleChange}
                             value={this.state.text}
                             type="text"
-                            placeholder="Enter your message and press ENTER"
+                            placeholder="Ask me something..."
                             autofocus="true"
-                            style={{width: '50%', height: '20px'}}
+                            style={{marginTop:'110px',width: '88%', height: '36px',float:'left',borderRadius:'15px'}}
                         />
-                        <button style={{}}>Send</button>
+                        <button className ="myButton" style={{width: '10%',marginTop:'110px',fontSize:'15px',borderRadius:'28px',backgroundColor:'green'}}>Send</button>
                     </div>
                 </form>
             </div>

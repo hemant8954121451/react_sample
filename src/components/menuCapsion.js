@@ -7,8 +7,8 @@ class MenuCapsion extends Component {
       return (
         
           <Router>
-            <div>
-            <ul>
+            <div id="menu">
+            <ul className="header-menu">
               <li>
                 <Link to="/">Home</Link>
               </li>
