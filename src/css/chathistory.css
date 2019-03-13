@@ -154,3 +154,38 @@
         0% { transform: rotate(0deg); }
         100% { transform: rotate(360deg); }
       }
+     
+      .user_style{
+        border-radius: 25px;
+        padding: 20px; 
+        height: 150px;
+        width:20%;
+        background-color: rgb(232, 232, 235); 
+        margin-top:15px;
+        margin-right: 2%;
+        margin-bottom: 3%;
+        margin-left: 2%;
+        float:left;
+      }
+      .right-user-location{
+          float:right;
+          clear:both;
+          color:black;
+      }
+      .left-user-location{
+        color:black;
+    }
+    .check-close-div{
+        margin-top: 17px;
+    }
+    .check-close-div .right-image{
+        width:20px;
+        height:20px;
+        float:right;
+    }
+    .check-close-div .left-image{
+        width:20px;
+        height:20px
+    }
+
+     

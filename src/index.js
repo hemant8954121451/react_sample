@@ -4,16 +4,18 @@ import ReactDOM from 'react-dom';
 import App from './App'
 import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux'
-import { createStore,applyMiddleware } from 'redux'
+import { createStore,applyMiddleware,compose } from 'redux'
 import rootReducers from './Reducer'
 import thunk from "redux-thunk";
+import { composeWithDevTools } from 'redux-devtools-extension';
 
 
 const store = createStore(rootReducers,
-    applyMiddleware(thunk),window.devToolsExtension && window.devToolsExtension()
-    )
-
-
+    composeWithDevTools( (
+    applyMiddleware(thunk)
+    
+    )),
+)
 
 ReactDOM.render(
     <Provider store={store}>

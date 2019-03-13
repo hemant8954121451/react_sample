@@ -38,6 +38,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "nodemon": "^1.18.10"
+    "nodemon": "^1.18.10",
+    "redux-devtools-extension": "^2.13.8"
   }
 }
