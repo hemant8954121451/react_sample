@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import '../css/chathistory.css'
 import { connect } from 'react-redux'
-
+import check from '../images/check.png'
+import close from '../images/close.png'
 
 class UserProfile extends Component {
   constructor(props) {
@@ -18,14 +19,15 @@ class UserProfile extends Component {
       <div className="content">
         {users.constructor === Array  && users.map((user) => {
           return (
-            <div style={{display:'block',padding:'10px 4px'}}>
               <div  className="user_style" >
                 <img width="280px" height="100px" padding="10px" src= {user.profile} />
-                  <div style={{fontWeight:'bold'}}>Location: {user.location}</div>
-                  <div style={{fontWeight:'bold',float:'right',marginTop:'-15px'}}>Age:{user.age}</div>
-              </div>
-              <a href="#" class="close"></a>
-            </div>
+                  <span className="left-user-location">Location: {user.location}</span>
+                  <span className="right-user-location">Age:{user.age}</span>
+                  <div class="check-close-div">
+                  <img alt="like" className="left-image" src={check}/>
+                  <img alt="dislike" className="right-image" src={close}/>
+                  </div>
+              </div> 
           )
         })
         }
