@@ -1,12 +1,11 @@
 import React, { Component } from 'react'
-import './chathistory.css'
+import '../css/chathistory.css'
 import  img  from '../images/icon.svg'
 
 class ChatHistory extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            body: "Connecting...",
             text: "",
             msgs: [],
             isLoader:false
@@ -56,10 +55,10 @@ class ChatHistory extends Component {
             userInfo=   JSON.parse(jsonObj)
             console.log(userInfo)
         }else{
-            this.props.history.push('/')
+            this.props.history.push('/')  
         }
         const { match: { params } } = this.props;
-        const {msgs} =this.state
+        const {msgs} =this.state;
         const data= msgs.map((obj)=>{
             if(obj.type=='sender')
             return <li  style={{color:"white",float:"right",marginTop:"10px",padding:"30px 20px 50px 25px",borderRadius: "12px",width:'200px',backgroundColor:"#4b286d"}} >{obj.data}<span style={{display: "block",marginTop: "21px",color: "gray"}}> {obj.time}</span></li>
@@ -76,7 +75,6 @@ class ChatHistory extends Component {
                             &nbsp;&nbsp;&nbsp;
                     <div>
                         <ul class="chat" style={{listStyleType:'none'}}>
-                            
                             {data}
                         </ul>
                         {this.state.isLoader&& <div class="loader"></div>}
