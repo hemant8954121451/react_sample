@@ -9,10 +9,8 @@ class UserList extends Component {
         this.state = {
             users: [],
             errors: null,
-            chat:[{id: '1', message: 'how r u?',end:true}]
         };
     }
-    
     componentDidMount() {
         console.log('component did mount',this.props)
         this.props.getUserList();
@@ -20,8 +18,17 @@ class UserList extends Component {
     handleNewUserMessage = (newMessage) => {
         console.log(`New message incomig! ${newMessage}`);
     }
-    btnTapped(userId,userName,image){ 
-       this.props.history.push('/chat-history/'+userId+'/'+userName+'/'+image)
+    btnTapped(userId,userName,image,age,location){ 
+        const userObj ={
+            userId,
+            userName,
+            image,
+            age,
+            location
+        };
+        localStorage.setItem("userInfo", JSON.stringify(userObj));
+
+       this.props.history.push('/chat-history/'+userId)
     }
     render() {
         const { users } = this.props; console.log('users data',users);
@@ -30,9 +37,9 @@ class UserList extends Component {
                     <h2>Random User</h2>
                     {users.length > 0 && (
                         users.map(user => {
-                            const { name, age, location, id,profile } = user;
+                            const { name, age, location, id,profile} = user;
                             return (
-                                <div onClick={(e)=>this.btnTapped(id,name,profile,e)} key={name}>
+                                <div onClick={(e)=>this.btnTapped(id,name,profile,age,location,e)} key={name}>
                                     <p>{name}</p>
                                     <p>{age}</p>
                                     <p>{location}</p>
@@ -45,12 +52,11 @@ class UserList extends Component {
         );
     }
 }
-
 const mapStateToProps = state => {
     console.log("Map to state props", state)
     const { users } = state.userReducer
     return {
-        users: users
+        users
     }
 }
 

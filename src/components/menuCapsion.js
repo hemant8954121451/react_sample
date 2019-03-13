@@ -22,7 +22,7 @@ class MenuCapsion extends Component {
             <hr />
             <Route exact path="/" component={UserList} />
             <Route  path="/users_list" component={UserList} />
-            <Route  path="/chat-history/:id/:username/:image" component={ChatHistory} />
+            <Route  path="/chat-history/:id" component={ChatHistory} />
             </div>
           </Router>
         
