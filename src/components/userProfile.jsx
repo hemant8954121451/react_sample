@@ -42,11 +42,13 @@ class UserProfile extends Component {
           return (
               <div  className="user_style" >
                 <img width="280px" height="100px" padding="10px" src= {user.profile} />
+                <span style={{display:'block', color:'black'}}>Name: {user.name}</span>
                   <span className="left-user-location">Location: {user.location}</span>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
                   <span className="right-user-location">Age:{user.age}</span>
                   <div class="check-close-div">
-                  <img id={"like_"+user.id} onClick={(e)=>this.OnPressLikeIcon(1,user.id)}  alt="like" className="left-image" value ="like" title="like" src={check}/>
-                  <img id={"unlike_"+user.id} onClick={(e)=>this.OnPressLikeIcon (0,user.id)} alt="dislike" className="right-image" value="dislike" title="dislike" src={close}/></div>
+                    <img id={"like_"+user.id} onClick={(e)=>this.OnPressLikeIcon(1,user.id)}  alt="like" className="left-image" value ="like" title="like" src={check}/>
+                    <img id={"unlike_"+user.id} onClick={(e)=>this.OnPressLikeIcon (0,user.id)} alt="dislike" className="right-image" value="dislike" title="dislike" src={close}/>
+                  </div>
               </div> 
           )
         })
