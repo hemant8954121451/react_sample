@@ -4,7 +4,7 @@ import  img  from '../images/icon.svg'
 
 class ChatHistory extends Component {
     constructor(props) {
-        super(props)
+        super(props) 
         this.state = {
             text: "",
             msgs: [],

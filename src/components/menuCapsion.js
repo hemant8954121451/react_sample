@@ -2,6 +2,10 @@ import React, {Component } from 'react'
 import UserList from './userList';
 import ChatHistory from './chatHistory';
 import UserProfile from './userProfile';
+import WishlistUser from './wishlistUsers';
+import BenchUsers from './benchUsers';
+
+
 import { BrowserRouter as Router, Route, Link  } from "react-router-dom";
 class MenuCapsion extends Component {
     render() {
@@ -26,8 +30,8 @@ class MenuCapsion extends Component {
             <Route exact path="/" component={UserList} />
             <Route  path="/users_profile" component={UserProfile} />
             <Route  path="/chat-history/:id" component={ChatHistory} />
-            <Route  path="/wishList-users" component={UserProfile} />
-            <Route  path="/bench-users" component={UserProfile} />
+            <Route  path="/wishList-users" component={WishlistUser} />
+            <Route  path="/bench-users" component={BenchUsers} />
             </div>
           </Router>
         
