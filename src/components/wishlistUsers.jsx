@@ -27,6 +27,7 @@ class WishlistUser extends Component {
         }else{
           userNewArray.push({id:user_id,like:likeflag})
         }
+        document.getElementById("user_div_"+user_id).style.display='none';
         this.props.storeIconInfo(userNewArray)
       }
     getMatch(users, userObj) {
@@ -49,7 +50,7 @@ class WishlistUser extends Component {
             <div className="content">
             {Array.isArray(whislistUsers)  && whislistUsers.map((user) => {
                 return (
-                    <div  className="user_style" >
+                    <div id={"user_div_"+user.id}  className="user_style" >
                       <img width="280px" height="100px" padding="10px" src= {user.profile} />
                       <span style={{display:'block', color:'black'}}>Name: {user.name}</span>
                         <span className="left-user-location">Location: {user.location}</span>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
