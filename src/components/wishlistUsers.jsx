@@ -42,7 +42,6 @@ class WishlistUser extends Component {
         return userWhishlist;
     }
     render() {
-        console.log('========================================')
         const {users} = this.props;
         const {userObj} = this.props;
         const whislistUsers=  this.getMatch(users,userObj)
@@ -56,7 +55,7 @@ class WishlistUser extends Component {
                         <span className="left-user-location">Location: {user.location}</span>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
                         <span className="right-user-location">Age:{user.age}</span>
                         <div class="check-close-div"> 
-                            <img id={"unlike_"+user.id} onClick={(e)=>this.OnPressLikeIcon (0,user.id)} alt="dislike" className="right-image" value="dislike" title="dislike" src={close}/>
+                            <img id={"unlike_"+user.id} onClick={(e)=>this.OnPressLikeIcon (0,user.id)} alt="dislike" className="right-image" value="dislike"title="dislike" src={close}/>
                         </div>
                     </div> 
                 )

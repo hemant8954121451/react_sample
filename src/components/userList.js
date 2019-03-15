@@ -34,17 +34,24 @@ class UserList extends Component {
         const { users } = this.props; console.log('users data',users);
         return (
                 <div>
-                    <h2>Random User</h2>
+                    <h2 style={{textAlign:'center'}}>Xavient Chatbot Users</h2><hr />
+                    <div className="user-list-header">
+                        <p>Name</p>
+                        <p>Age</p>
+                        <p>Location</p>
+                    </div>   
                     {users.length > 0 && (
                         users.map(user => {
                             const { name, age, location, id,profile} = user;
                             return (
-                                <div onClick={(e)=>this.btnTapped(id,name,profile,age,location,e)} key={name}>
-                                    <p>{name}</p>
-                                    <p>{age}</p>
-                                    <p>{location}</p>
-                                    <hr />
+                                <div className="my-user-list" onClick={(e)=>this.btnTapped(id,name,profile,age,location,e)} key={name}>
+                                
+                                   <div> <p >{name}</p></div>
+                                    <div><p>{age}</p></div>
+                                    <div><p>{location}</p></div>
+                                    
                                 </div>
+                               
                             );
                         })
                     )}
