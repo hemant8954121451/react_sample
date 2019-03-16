@@ -6,7 +6,6 @@ const initialState = {
 };
 
 export default function userReducer(state = initialState, action) {
-   // alert('reducer')
     console.log(action)
     switch (action.type) {
         case FETCH_USERS_LIST:
